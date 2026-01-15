@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>哲學大哉問：忒修斯之船</title>
+    <style>
+        /* CSS 樣式表 */
+        :root {
+            --primary-bg: #0f172a;
+            --secondary-bg: #1e293b;
+            --accent: #facc15; /* 亮黃色 */
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+            padding: 2rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+            text-shadow: 0 0 20px rgba(250, 204, 21, 0.3);
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: var(--primary-bg);
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            border: none;
+            font-size: 1.1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(250, 204, 21, 0.3);
+        }
+
+        section {
+            padding: 5rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media(min-width: 768px) {
+            .card-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .card {
+            background-color: var(--secondary-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid #334155;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--accent);
+        }
+
+        /* 互動實驗區 */
+        .experiment-box {
+            background-color: var(--secondary-bg);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .ship-visual {
+            font-size: 5rem;
+            margin: 20px 0;
+            transition: filter 0.5s;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #334155;
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .highlight {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem;
+            background-color: var(--secondary-bg);
+            margin-top: 5rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .quiz-options button {
+            margin: 10px;
+            background-color: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+        
+        .quiz-options button:hover, .quiz-options button.selected {
+            background-color: var(--accent);
+            color: var(--primary-bg);
+        }
+
+        .hidden {
+            display: none;
+        }
+        
+        /* 簡單的動畫類 */
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="fade-in">
+            <h1>你真的是你嗎？</h1>
+            <p>如果你的身體細胞每七年就全部更新一次，現在的你，還是七年前的那個你嗎？</p>
+            <p>這是一個困擾人類千年的哲學難題。</p>
+            <a href="#paradox" class="btn">開始探索</a>
+        </div>
+    </header>
+
+    <section id="paradox">
+        <h2>🚢 忒修斯之船 (The Ship of Theseus)</h2>
+        
+        <p>西元一世紀，希臘哲學家普魯塔克提出了一個問題：</p>
+        <div class="card">
+            <p>「如果有艘船，船上的木頭逐漸腐朽，我們每次換掉一塊舊木板，裝上一塊新木板。等到所有的木板都換過一輪之後...」</p>
+            <h3 style="text-align: center; margin-top: 1rem; color: var(--accent);">這艘船還是原本的那艘船嗎？</h3>
+        </div>
+    </section>
+
+    <section id="experiment">
+        <h2>🛠️ 思想實驗室：親自動手換木板</h2>
+        <p>試著點擊下方的按鈕，慢慢替換這艘船的零件，看看你的感覺何時會改變。</p>
+        
+        <div class="experiment-box">
+            <div id="ship-icon" class="ship-visual">⛵</div>
+            <div class="progress-bar">
+                <div id="progress" class="progress-fill"></div>
+            </div>
+            <p>目前已更換零件比例：<span id="percentage" class="highlight">0</span>%</p>
+            <p id="ship-status">這是一艘全新的忒修斯之船。</p>
+            <button onclick="replacePlank()" class="btn" id="replace-btn">更換一塊木板</button>
+            <button onclick="resetShip()" class="btn hidden" id="reset-btn" style="background-color: #ef4444;">重置實驗</button>
+        </div>
+    </section>
+
+    <section>
+        <h2>🤔 兩個更深層的難題</h2>
+        <div class="card-container">
+            <div class="card">
+                <h3>情境 A：逐漸替換</h3>
+                <p>就像剛剛的實驗，如果物質是逐漸改變的，我們似乎傾向認為它還是「同一個物體」。</p>
+                <p><strong>應用於人體：</strong>你的細胞無時無刻不在新陳代謝，昨天的你和今天的你在物質上已經不同了。</p>
+                
+            </div>
+            <div class="card">
+                <h3>情境 B：舊零件重組</h3>
+                <p>如果有人把我們剛剛拆下來的「舊木板」全部收集起來，重新組裝成一艘船。</p>
+                <p><strong>請問：</strong>現在有兩艘船，哪一艘才是原本的「忒修斯之船」？</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>🧠 從船到「人」：什麼代表了你？</h2>
+        <p>啾啾鞋在影片中提到，如果物質不能定義我們，那是記憶嗎？</p>
+        
+        <div class="card-container">
+            <div class="card">
+                <h3>💊 洛克的記憶理論</h3>
+                <p>英國哲學家洛克認為：<strong>「記憶」</strong>才是延續自我的關鍵。只要你有過去的記憶，你就是你。</p>
+            </div>
+            <div class="card">
+                <h3>👻 傳送門悖論</h3>
+                <p>如果像科幻電影一樣，把你的身體分解，傳送到火星重組。你的記憶完全一樣，但原子全是新的。</p>
+                <p><strong>那個火星上的人，是你嗎？還是你已經在地球被殺死了？</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="vote">
+        <h2>🗳️ 你的結論是？</h2>
+        <p>經過思考後，你認為定義「原本的你」最重要的是什麼？</p>
+        <div class="experiment-box quiz-options">
+            <button class="btn" onclick="vote(this)">物質身體 (原本的原子)</button>
+            <button class="btn" onclick="vote(this)">連續的記憶與意識</button>
+            <button class="btn" onclick="vote(this)">兩者皆非 / 無法定義</button>
+            <p id="vote-result" style="margin-top: 1rem; color: var(--accent); opacity: 0; transition: 0.5s;">感謝你的思考！這是一個沒有標準答案的問題。</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>本網頁為教學示範用途 | 靈感來源：YouTube 啾啾鞋 Channel</p>
+        <p><a href="https://www.youtube.com/watch?v=HkZ9HCLLk-o" target="_blank" style="color: var(--accent);">觀看原始影片</a></p>
+    </footer>
+
+    <script>
+        // JavaScript 互動邏輯
+        let percentage = 0;
+        const progressBar = document.getElementById('progress');
+        const percentText = document.getElementById('percentage');
+        const shipStatus = document.getElementById('ship-status');
+        const shipIcon = document.getElementById('ship-icon');
+        const replaceBtn = document.getElementById('replace-btn');
+        const resetBtn = document.getElementById('reset-btn');
+
+        function replacePlank() {
+            if (percentage < 100) {
+                percentage += 10;
+                updateUI();
+            }
+        }
+
+        function updateUI() {
+            progressBar.style.width = percentage + '%';
+            percentText.innerText = percentage;
+            
+            // 改變船的濾鏡顏色，模擬變舊或變新
+            shipIcon.style.filter = `hue-rotate(${percentage * 1.5}deg)`;
+
+            if (percentage > 0 && percentage < 50) {
+                shipStatus.innerText = "正在更換零件...它還是原本的船嗎？";
+            } else if (percentage >= 50 && percentage < 100) {
+                shipStatus.innerText = "大部分零件都換過了，你開始覺得陌生了嗎？";
+            } else if (percentage === 100) {
+                shipStatus.innerText = "所有零件都已更換完畢！這還是忒修斯之船嗎？";
+                replaceBtn.classList.add('hidden');
+                resetBtn.classList.remove('hidden');
+            }
+        }
+
+        function resetShip() {
+            percentage = 0;
+            updateUI();
+            shipStatus.innerText = "這是一艘全新的忒修斯之船。";
+            shipIcon.style.filter = "none";
+            replaceBtn.classList.remove('hidden');
+            resetBtn.classList.add('hidden');
+        }
+
+        function vote(btn) {
+            // 移除其他按鈕的選中狀態
+            const buttons = document.querySelectorAll('.quiz-options button');
+            buttons.forEach(b => b.classList.remove('selected'));
+            
+            // 選中當前按鈕
+            btn.classList.add('selected');
+            
+            // 顯示結果訊息
+            const resultMsg = document.getElementById('vote-result');
+            resultMsg.style.opacity = '1';
+        }
+    </script>
+</body>
+</html>
