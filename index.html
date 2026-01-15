@@ -85,3 +85,194 @@
         }
         
         .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-red);
+            margin: 10px auto 0;
+        }
+
+        /* Debate Columns */
+        .debate-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .debate-card {
+            flex: 1;
+            min-width: 300px;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .card-protection {
+            background-color: #f0f8ff;
+            border-top: 5px solid var(--accent-blue);
+        }
+
+        .card-punishment {
+            background-color: #fff5f5;
+            border-top: 5px solid var(--accent-red);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-protection .card-title { color: var(--accent-blue); }
+        .card-punishment .card-title { color: var(--accent-red); }
+
+        .debate-list {
+            list-style: none;
+        }
+
+        .debate-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .debate-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Reflection Section */
+        .reflection-area {
+            background-color: var(--light-bg);
+            padding: 3rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .question {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn-blue {
+            background-color: var(--accent-blue);
+            color: white;
+        }
+
+        .btn-red {
+            background-color: var(--accent-red);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            background-color: var(--primary-color);
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.8rem; }
+            .debate-container { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>少年司法：寬容是救贖還是縱容？</h1>
+    <p>高中公民與社會｜主題思辨課程<br>從公視主題之夜《輕判少年犯是保護還是縱容？》談起</p>
+</header>
+
+<div class="container">
+
+    <div style="margin-bottom: 2rem; text-align: center;">
+        <p><strong>課程背景：</strong>當未成年人犯下重罪，法律該如何衡量「教化可能性」與「受害者正義」？<br>透過本影片，我們將探討《少年事件處理法》背後的立法邏輯與社會矛盾。</p>
+    </div>
+
+    <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/HkZ9HCLLk-o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <h2 class="section-title">核心論點對抗</h2>
+    
+    <div class="debate-container">
+        <div class="debate-card card-protection">
+            <h3 class="card-title">🛡️ 正方：應重視保護與教化</h3>
+            <p style="margin-bottom: 1rem; font-size: 0.9em; color: #555;">(觀點：教育工作者、社工、法律白話文社群)</p>
+            <ul class="debate-list">
+                <li><strong>標籤理論：</strong>過早將少年貼上罪犯標籤，反而可能將其推向更深層的犯罪深淵，形成惡性循環。</li>
+                <li><strong>結構性因素：</strong>許多少年犯罪源於家庭失能、貧窮或缺乏關愛。犯罪往往是他們發出的「求救訊號」。</li>
+                <li><strong>腦部發展：</strong>青少年腦部前額葉尚未發育完全，衝動控制能力較弱，應給予改正機會而非單純報復性懲罰。</li>
+                <li><strong>社會成本：</strong>重刑化可能製造出更兇殘的成年罪犯，投入資源輔導能降低長期社會成本。</li>
+            </ul>
+        </div>
+
+        <div class="debate-card card-punishment">
+            <h3 class="card-title">⚖️ 反方：應重視正義與代價</h3>
+            <p style="margin-bottom: 1rem; font-size: 0.9em; color: #555;">(觀點：部分民眾、受害者家屬立場)</p>
+            <ul class="debate-list">
+                <li><strong>受害者正義：</strong>過度強調加害者的教化可能，往往忽視了受害者及其家屬的傷痛與權益。</li>
+                <li><strong>法律威嚇力：</strong>若少年犯法只需承擔極輕代價，法律將失去紅線作用，導致「有恃無恐」的心態。</li>
+                <li><strong>公平性問題：</strong>同樣是重罪，僅因年齡差異而有巨大的刑罰落差，可能違反大眾對公平正義的直覺。</li>
+                <li><strong>社會安全網漏洞：</strong>在輔導資源不足的現狀下，將危險少年放回社區，可能造成大眾恐慌與安全隱憂。</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="reflection-area">
+        <h2 class="question">如果你是修法委員，你會如何抉擇？</h2>
+        <p style="margin-bottom: 2rem;">思考題：在「給予改過機會」與「回應社會公義」之間，你的平衡點在哪裡？</p>
+        
+        <div class="btn-group">
+            <button class="btn btn-blue" onclick="alert('你選擇了傾向「教育與輔導」。這需要大量的社會資源投入與社工體系的完善，你認為台灣準備好了嗎？')">傾向教育輔導 (維持現狀/更軟)</button>
+            <button class="btn btn-red" onclick="alert('你選擇了傾向「刑罰與責任」。這可能滿足當下的正義感，但如何確保這位少年出獄後不會變得更極端？')">傾向刑罰責任 (修法加重)</button>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>資料來源：公視主題之夜 SHOW <br>
+    <a href="https://www.youtube.com/watch?v=HkZ9HCLLk-o" target="_blank">觀看完整影片</a> | 設計供高中公民教學使用</p>
+</footer>
+
+</body>
+</html>
